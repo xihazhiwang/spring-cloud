@@ -26,4 +26,10 @@ public class Dept implements Serializable {
     public Dept(String name) {
         this.name = name;
     }
+
+
+    public static void main(String[] args) {
+        Dept dept = new Dept();
+        dept.setId(1L).setDbSource("1").setName("1");
+    }
 }

@@ -27,7 +27,11 @@ public class DeptConsumerController {
     @Autowired
     private RestTemplate restTemplate;
 
-    private static final String REST_URL_PREFIX = "http://localhost:8001";
+    /**
+     * 通过ribbon负载均衡，这里应该是一个变量
+     */
+    //private static final String REST_URL_PREFIX = "http://localhost:8001";
+    private static final String REST_URL_PREFIX = "http://SPRINGCLOUD-PROVIDER-DEPT";
 
     @GetMapping("/consumer/dept/get/{id}")
     public Dept get(@PathVariable Long id) {
@@ -35,7 +39,7 @@ public class DeptConsumerController {
     }
 
     @GetMapping("/consumer/dept/add")
-    public boolean add(Dept dept) {
+    public Boolean add(Dept dept) {
         return restTemplate.postForObject(REST_URL_PREFIX + "/dept/add", dept, Boolean.class);
     }
 
