@@ -13,6 +13,13 @@
 
     <!--当前module自己需要的依赖-->
     <dependencies>
+        <!--fegin-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+            <version>1.4.6.RELEASE</version>
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
