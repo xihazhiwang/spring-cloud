@@ -1,0 +1,26 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: springcloud-zuul
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: zuul9527
+    prefer-ip-address: true
+
+zuul:
+  routes:
+    mydept.serviceId: springcloud-provider-dept
+    mydept.path: /mydept/**
+  #ignored-services: springcloud-provider-dept # 不能使用这个路由网管进行访问
+  ignored-services: "*" # 不能使用这个路由网管进行访问
+  prefix: /hanbo #设置公共的配置
+
+info:
+  app.name: com.hanbo
+  company.name: https://www.github.com/xixihaha
